@@ -5,7 +5,7 @@
 /**
  * main - simple shell
  *
- *
+ * Return: 0
  */
 int main(void)
 {
@@ -19,16 +19,14 @@ int main(void)
 
 	while (1)
 	{
-		fflush(stdin);
 		characters = getline(&buf, &bufsize, stdin);
-
 		if (characters == -1)
 		{
 			perror("ERROR");
 		}
 		else
 		{
-
+			printf("%s", buf);
 		}
 	}
 
