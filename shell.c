@@ -3,6 +3,15 @@
 #include <stdlib.h>
 #include <string.h>
 
+void delete_memory(char **table, int value)
+{
+	int i;
+
+	
+	for (i = 0; i < value; i++)
+		free(table[i]);
+	free(table);
+}
 /**
  * *_calloc - call
  * @nmemb: n
@@ -90,13 +99,13 @@ char *_strcpy(char *dest, char *src)
 int main(void)
 {
 	char *buf = NULL;
-	char *token;
-	char *tmp;
+	char *token = NULL;
+	char *tmp = NULL;
 	char *delim = " \n\t";
-	//char **argv;
+	char **argv = NULL;
 	int numTokens;
 	int characters = 0; 
-	//int i;
+	int i;
 	int status = 1;
 	size_t bufsize = 0;
 
@@ -134,9 +143,41 @@ int main(void)
 
 			printf("number of tokens : %d\n", numTokens);
 
+			//argv = (char **) _calloc(numTokens + 1, sizeof(char *));
+			argv = (char **) malloc((numTokens + 1) * sizeof(char *));
+			if (argv == NULL)
+				exit(1);				
+			numTokens = 0;
+			token = strtok(tmp, delim);
+			while(token)
+			{
+				printf("%s", token);
+				argv[numTokens] = _calloc((_strlen(token) + 1), sizeof(char));
+				argv[numTokens] = _strcpy(argv[numTokens], token);
+				numTokens++;
+				token = strtok(NULL, delim);
+			}
+			argv[numTokens] = NULL;
 
+			printf(".\n");
+			printf(".\n");
+			printf(".\n");
+			printf(".\n");
+
+			printf("number of data save inside argv : %d\n", numTokens);
+			i = numTokens;
+			for (; i >= 0; i--)
+			{
+				printf ("argv[%d] : %s\n",i ,(argv[i] == NULL) ? "(nil)" : argv[i]);
+			}
+			//printf ("argv[0] : %s\n", (argv[0] == NULL) ? "(nil)" : argv[0]);
+			//printf ("argv[1] : %s\n", (argv[1] == NULL) ? "(nil)" : argv[1]);
+			//printf ("argv[2] : %s\n", (argv[2] == NULL) ? "(nil)" : argv[2]);
 			//free(token);
 			//free(buf);
+
+			delete_memory(argv, numTokens + 1);
+			//free(argv);
 			free(tmp);
 			//free(buf);
 		}
