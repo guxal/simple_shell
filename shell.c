@@ -90,10 +90,11 @@ char *_strcpy(char *dest, char *src)
 int main(void)
 {
 	char *buf = NULL;
-	//char *token;
+	char *token;
 	char *tmp;
+	char *delim = " \n\t";
 	//char **argv;
-	//int numTokens;
+	int numTokens;
 	int characters = 0; 
 	//int i;
 	int status = 1;
@@ -125,6 +126,13 @@ int main(void)
 			printf("\n===== print tmp ================\n");
 			simple_print_buffer(tmp, _strlen(tmp) + 1);
 			
+			numTokens = 0;
+			token = strtok(buf, delim);
+			while (token)
+				token = strtok(NULL, delim), numTokens++;
+
+			printf("number of tokens : %d\n", numTokens);
+			//free(token);
 			//free(buf);
 			free(tmp);
 			//free(buf);
