@@ -107,6 +107,7 @@ int main(void)
 	int characters = 0; 
 	int i;
 	int status = 1;
+	pid_t pid;
 	size_t bufsize = 0;
 
 	do
@@ -176,6 +177,23 @@ int main(void)
 			//free(token);
 			//free(buf);
 
+			if (argv[0] != NULL)
+			{
+				pid = fork();
+				if (pid == 0)
+				{
+					if (execve(argv[0], argv, NULL) == -1)
+					{
+						perror("Error:");
+					}
+					//free(buf);
+				}
+				else
+				{
+					wait(&pid);
+				}
+			//	
+			}
 			delete_memory(argv, numTokens + 1);
 			//free(argv);
 			free(tmp);
@@ -184,7 +202,7 @@ int main(void)
 		//free(tmp);
 	} while (status);
 
-	free(buf);
+	
 
 	return (0);
 }
