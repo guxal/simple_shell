@@ -106,6 +106,7 @@ int main(void)
 		if (characters == -1)
 		{
 			perror("ERROR");
+			exit(1);
 		}
 		else
 		{
