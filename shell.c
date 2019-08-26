@@ -102,6 +102,7 @@ int main(void)
 
 	do
 	{
+		printf("#cisfun...$ ");
 		fflush(stdin);
 		characters = getline(&buf, &bufsize, stdin);
 		if (characters == -1)
@@ -132,6 +133,8 @@ int main(void)
 				token = strtok(NULL, delim), numTokens++;
 
 			printf("number of tokens : %d\n", numTokens);
+
+
 			//free(token);
 			//free(buf);
 			free(tmp);
