@@ -6,7 +6,7 @@
  * Return: Success or Fail
  */
 
-int main()
+int main(void)
 {
 	/* me guarda el buf*/
 	char *buf = NULL;
@@ -16,12 +16,12 @@ int main()
 	char *temp;
 	/* me guarda un array de strings {"path", "path", "path"} */
 	char **argv;
-//int i;
+/*int i;*/
 
-	while(EOF)
+	while (EOF)
 	{
 		/* print prompt */
-		//if (isatty(fileno(stdin)))
+		/* if (isatty(fileno(stdin))) */
 		printf("#cisfun$ ");
 
 		buf = read_line();
