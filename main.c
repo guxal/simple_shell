@@ -6,14 +6,16 @@
  * Return: Success or Fail
  */
 
-int main()
+int main(void)
 {
 	char *buf = NULL;
 	char **argv;
 
-	while(EOF)
+	while (EOF)
 	{
 		if (isatty(fileno(stdin)))
+		/* print prompt */
+		/* if (isatty(fileno(stdin))) */
 		printf("#cisfun$ ");
 		buf = read_line();
 		if (buf == NULL)
