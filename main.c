@@ -19,16 +19,16 @@ int main(void)
 		buf = read_line();
 		if (buf == NULL)
 		{
-			//free(buf);
+			free(buf);
 			perror("NULL");
 		}
 		else
 		{
 			args = split_line(buf);
-			execute(args.argv);	
+			execute(args.argv);
 			delete_memory(args.argv, args.argc);
+			free(buf);
 		}
-		free(buf);
 	}
 	return (0);
 }

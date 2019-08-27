@@ -5,11 +5,17 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
-
-typedef struct args 
+/**
+ * struct args - arguments
+ * @argc: numbers of argv
+ * @argv: double pointer of strings
+ *
+ * Description: struct arguments
+ */
+typedef struct args
 {
-    int argc;
-    char **argv;
+	int argc;
+	char **argv;
 } args_t;
 
 int _strlen(char *str);
