@@ -15,6 +15,7 @@ char *read_line(void)
 	characters = getline(&buf, &bufsize, stdin);
 	if (characters == -1)
 	{
+		free(buf);
 		exit(1);
 	}
 	return (buf);
