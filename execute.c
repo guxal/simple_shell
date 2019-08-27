@@ -33,7 +33,5 @@ int execute(char **argv)
 		}
 	}
 
-	printf("status: %d ", status);
-
 	return (1);
 }

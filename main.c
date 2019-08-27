@@ -9,26 +9,26 @@
 int main(void)
 {
 	char *buf = NULL;
-	char **argv;
+	args_t args;
 
 	while (EOF)
 	{
-		if (isatty(fileno(stdin)))
 		/* print prompt */
-		/* if (isatty(fileno(stdin))) */
-		printf("#cisfun$ ");
+		if (isatty(fileno(stdin)))
+			printf("#cisfun$ ");
 		buf = read_line();
 		if (buf == NULL)
 		{
+			//free(buf);
 			perror("NULL");
 		}
 		else
 		{
-			argv = split_line(buf);
-			execute(argv);
-			free(buf);
-			free(argv);
+			args = split_line(buf);
+			execute(args.argv);	
+			delete_memory(args.argv, args.argc);
 		}
+		free(buf);
 	}
 	return (0);
 }
