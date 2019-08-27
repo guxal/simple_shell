@@ -8,13 +8,13 @@
 
 int main(void)
 {
-	/* me guarda el buf*/
+	/* it saves the buffer*/
 	char *buf = NULL;
-	/* me guarda el array resultado del strtok */
+	/* it saves the parsed array from strtok*/
 	char *chainArray;
 	/* temporal */
 	char *temp;
-	/* me guarda un array de strings {"path", "path", "path"} */
+	/* it saves the strings array argv {"path", "path", "path"} */
 	char **argv;
 /*int i;*/
 
@@ -30,7 +30,7 @@ int main(void)
 		{
 			perror("NULL");
 		}
-		/* en caso de que sea exitosa */
+		/* when read_line sucessull */
 		else
 		{
 			argv = split_line(buf);

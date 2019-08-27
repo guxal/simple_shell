@@ -1,13 +1,9 @@
 #include "header.h"
-
 /**
  * split_line - Generate argv vector
- *
- *
  *@buf: Line to be splitted
  * Return: double pointer char
  */
-
 char **split_line(char *buf)
 {
 	char **argv;
@@ -16,27 +12,19 @@ char **split_line(char *buf)
 	int count = 0;
 
 	temp = malloc((_strlen(buf) + 1) * sizeof(char));
-
 	_strcpy(temp, buf);
-
-	/* se realiza el conteo de parametros pasados al stdin*/
-	tokenArray = strtok(buf, " ");
+	tokenArray = strtok(buf, " "); /* It counts parmeters from stdin */
 	while (tokenArray != NULL)
 	{
 		if (_strcmp(tokenArray, " ") > 0)
 			count++;
 		tokenArray = strtok(NULL, " ");
 	}
-
 	argv = (char **) malloc((count) * sizeof(char *));
-
 	if (argv == NULL)
 		return (0);
-
 	tokenArray = strtok(temp, " ");
-
 	count = 0;
-
 	while (tokenArray != NULL)
 	{
 		if (_strcmp(tokenArray, " ") > 0)
@@ -48,7 +36,6 @@ char **split_line(char *buf)
 		tokenArray = strtok(NULL, " ");
 	}
 	argv[count] = NULL;
-
 	free(temp);
 	free(tokenArray);
 	return (argv);
