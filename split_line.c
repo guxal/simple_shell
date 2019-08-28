@@ -1,9 +1,6 @@
 #include "header.h"
-
 /**
  * split_line - Generate argv vector
- *
- *
  *@buf: Line to be splitted
  * Return: double pointer char
  */
@@ -17,7 +14,7 @@ args_t split_line(char *buf)
 	char *token;
 	int count = 0;
 
-	temp = _calloc((_strlen(buf) + 1), sizeof(char));
+	temp = malloc((_strlen(buf) + 1) * sizeof(char));
 	temp = _strcpy(temp, buf);
 	token = strtok(buf, " ");
 	while (token != NULL)
@@ -25,7 +22,9 @@ args_t split_line(char *buf)
 		count++;
 		token = strtok(NULL, " ");
 	}
-	argv = (char **) _calloc((count + 1), sizeof(char *));
+	argv = (char **) malloc((count + 1) * sizeof(char *));
+	if (argv == NULL)
+		return (argts);
 	token = strtok(temp, " ");
 	count = 0;
 	while (token != NULL)
