@@ -2,10 +2,8 @@
 
 /**
  * split_line - Generate argv vector
- *
- *
- *@buf: Line to be splitted
- * Return: double pointer char
+ * @buf: Line to be splitted
+ * Return: args -> argv and argc
  */
 
 args_t split_line(char *buf)
