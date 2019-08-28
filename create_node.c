@@ -1,4 +1,36 @@
 #include "header.h"
+
+/**
+ * free_list - free list
+ * @head: head node list
+ */
+void free_list(path_t *head)
+{
+	path_t *tmp;
+
+	tmp = head;
+	while (head != NULL)
+	{
+		tmp = head;
+		head = head->next;
+		free(tmp->str);
+		free(tmp);
+	}
+	free(head);
+}
+/**
+ * list_len - length list
+ * @h: list
+ * Return: integer length
+ */
+size_t node_len(const path_t *h)
+{
+	size_t count = 0;
+
+	while (h)
+		h = h->next, count++;
+	return (count);
+}
 /**
  * *add_node - add node in list
  * @head: head
@@ -14,7 +46,7 @@ path_t *add_node(path_t **head, char *str)
 	new = malloc(sizeof(path_t));
 	if (new == NULL)
 		return (NULL);
-    new->str = malloc((_strlen(str) + 1) * sizeof(char));
+    new->str = malloc((_strlen(str) + 2) * sizeof(char));
     if (new->str == NULL)
         return (NULL);
 	new->str = _strcpy(new->str, str);
@@ -40,7 +72,26 @@ path_t *create_node(char *data, char* separator)
     token = strtok(data, separator);
     while (token)
         add_node(&new, token), token = strtok(NULL, separator);
-    free(token);
 
     return (new);
+}
+/**
+ * build_node - build node with length nodes
+ * 
+ * Return: struct node (path, len)
+ */
+node_t build_node(void)
+{
+    path_t *head;
+    node_t node;
+    char *get_env;
+	char *delim = ":";
+
+    get_env = _getenv("PATH");
+	head = create_node(get_env, delim);
+    
+    node.len = node_len(head);
+    node.path = head;
+ 
+    return (node);
 }

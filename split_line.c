@@ -37,6 +37,5 @@ args_t split_line(char *buf)
 	argts.argc = count;
 	argts.argv = argv;
 	free(temp);
-	free(token);
 	return (argts);
 }

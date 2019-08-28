@@ -9,13 +9,10 @@
 int main(void)
 {
 	char *buf = NULL;
-	char *get_env;
-	char *delim = ":";
-	path_t *head;
 	args_t args;
+	node_t node;
 
-	get_env = _getenv("PATH");
-	head = create_node(get_env, delim);
+	node = build_node();
 
 	while (EOF)
 	{
@@ -31,10 +28,12 @@ int main(void)
 		else
 		{
 			args = split_line(buf);
-			execute(args.argv, head);
+			execute(args.argv, node.path);
 			delete_memory(args.argv, args.argc);
 			free(buf);
 		}
 	}
+
+	free_list(node.path);
 	return (0);
 }

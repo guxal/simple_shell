@@ -17,6 +17,5 @@ char *_getenv(const char *name)
 			return (strtok(NULL, delim));
 		environ++;
 	}
-
 	return (NULL);
 }

@@ -64,8 +64,7 @@ int execute(char **argv, path_t *path)
 	{
 		concat = malloc((_strlen(path->str) + 1) * sizeof(char));
 		_strcpy(concat, path->str);
-		
-
+		concat = realloc(concat, sizeof(char) * ((_strlen(path->str) + _strlen(argv[0]) + 1)));
 		concat = _strcat(concat, argv[0]);
 		
 		//printf("concat : %s\n", concat);
@@ -77,10 +76,12 @@ int execute(char **argv, path_t *path)
 			free(argv[0]);
 			argv[0] = malloc((_strlen(concat) + 1) * sizeof(char));
 			argv[0] = _strcpy(argv[0], concat);
+			free(concat);
 			return (launch(argv));
         }
         else
         {
+			free(concat);
             //printf(" NOT FOUND\n");
         }
 		
