@@ -22,7 +22,7 @@ int main(void)
 		buf = read_line();
 		if (buf == NULL)
 		{
-			if(isatty(fileno(stdin)))
+			if (isatty(fileno(stdin)))
 				printf("\n");
 			break;
 		}
