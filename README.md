@@ -27,10 +27,12 @@ And you will get this prompt:
 ```
 
 ## Files and functions
--    File: man_1_simple_shell
+- File: Authors
 
+- File: man_1_simple_shell
 
 o
+
 - _File: _calloc.c
 
    void *_calloc(unsigned int nmemb, unsigned int size);
