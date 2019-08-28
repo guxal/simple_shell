@@ -87,6 +87,6 @@ int execute(char **argv, path_t *path)
 		
 		path = path->next;
 	}
-	free(concat);
+
 	return (1);
 }

@@ -16,7 +16,7 @@ char *read_line(void)
 	if (characters == -1)
 	{
 		free(buf);
-		exit(1);
+		return(NULL);
 	}
 	return (buf);
 }

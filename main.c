@@ -22,8 +22,9 @@ int main(void)
 		buf = read_line();
 		if (buf == NULL)
 		{
-			free(buf);
-			perror("NULL");
+			if(isatty(fileno(stdin)))
+				printf("\n");
+			break;
 		}
 		else
 		{
