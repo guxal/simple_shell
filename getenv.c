@@ -6,7 +6,6 @@
  */
 char *_getenv(const char *name)
 {
-	extern char **environ;
 	char *delim = "=";
 	char *token;
 
@@ -17,6 +16,5 @@ char *_getenv(const char *name)
 			return (strtok(NULL, delim));
 		environ++;
 	}
-
 	return (NULL);
 }
