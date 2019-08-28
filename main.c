@@ -8,37 +8,34 @@
 
 int main(void)
 {
-	/* it saves the buffer*/
 	char *buf = NULL;
-	/* it saves the parsed array from strtok*/
-	char *chainArray;
-	/* temporal */
-	char *temp;
-	/* it saves the strings array argv {"path", "path", "path"} */
-	char **argv;
-/*int i;*/
+	char *get_env;
+	char *delim = ":";
+	path_t *head;
+	args_t args;
+
+	get_env = _getenv("PATH");
+	head = create_node(get_env, delim);
+
 
 	while (EOF)
 	{
 		/* print prompt */
-		/* if (isatty(fileno(stdin))) */
-		printf("#cisfun$ ");
-
+		if (isatty(fileno(stdin)))
+			printf("#cisfun$ ");
 		buf = read_line();
-
 		if (buf == NULL)
 		{
+			free(buf);
 			perror("NULL");
 		}
-		/* when read_line sucessull */
+
 		else
 		{
-			argv = split_line(buf);
-
-			execute(argv);
-
+			args = split_line(buf);
+			execute(args.argv, head);
+			delete_memory(args.argv, args.argc);
 			free(buf);
-			free(argv);
 		}
 	}
 	return (0);
