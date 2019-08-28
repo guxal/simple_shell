@@ -11,7 +11,7 @@ args_t split_line(char *buf)
 	args_t argts;
 	char **argv;
 	char *temp;
-	char *delim = " \n\t";
+	char *delim = " \t\r\n\a";
 	char *token;
 	int count = 0;
 
