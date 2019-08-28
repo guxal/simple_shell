@@ -47,7 +47,7 @@ int execute(char **argv, path_t *path)
 		return (1);
 	}
 
-	if (argv[0][0] == '/')
+	if (argv[0][0] == '/' || argv[0][0] == '.')
 	{
 		return (launch(argv));
 	}
