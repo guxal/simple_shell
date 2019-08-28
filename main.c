@@ -17,13 +17,14 @@ int main(void)
 	while (EOF)
 	{
 		/* print prompt */
-		if (isatty(fileno(stdin)))
-			printf("#cisfun$ ");
+		/* if (isatty(fileno(stdin))) */
+		if (isatty(STDIN_FILENO))
+			write(1, "#cisfun$ ", 10);
 		buf = read_line();
 		if (buf == NULL)
 		{
-			if (isatty(fileno(stdin)))
-				printf("\n");
+			if (isatty(STDIN_FILENO))
+				write(1, "\n", 1);
 			break;
 		}
 		else
