@@ -3,12 +3,6 @@
 
 ## Usage
 
-You must include in your function the "header.h" header:
-
-```c
-#include "header.h"
-```
-
 The directory contents should be compiled with the following command:
 
 ```c
