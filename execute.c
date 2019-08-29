@@ -39,7 +39,7 @@ int launch(char **argv)
  */
 int execute(char **argv, path_t *path)
 {
-	int i;
+	/* int i; */
 	char *concat;
 	struct stat st;
 
