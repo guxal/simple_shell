@@ -39,7 +39,7 @@ int launch(char **argv)
  */
 int execute(char **argv, path_t *path)
 {
-	int (*built)(char**);
+	int (*built)(char **);
 	/* int i; */
 	char *concat;
 	struct stat st;
@@ -53,7 +53,7 @@ int execute(char **argv, path_t *path)
 
 	if (built != NULL)
 		return (built(argv));
-	
+
 	while (path)
 	{
 		concat = malloc((_strlen(path->str) + 1) * sizeof(char));
