@@ -1,6 +1,6 @@
-.TH man 1"29 July 2019" "1.0" "Holberton Simple Shell Man Page"
+.TH man 1 "28 August 2019" "1.0" "#cisfun$ Shell (1) simple shell man page"
 .SH NAME
-hsh - #cisfun$ shell
+hsh - #cisfun$ Shell
 
 .SH SYNOPSIS
 hsh (does not support arguments)
@@ -9,13 +9,13 @@ hsh (does not support arguments)
 This program is a simple shell simple implementation of the Bash Shell in the C Programming language. that can be compiled and runned from the command line. It contains the most basic features and functions found in the various shell programs.
 
 .SH OVERVIEW
-This is a Holberton School group project (Jonathan Cardenas Pabon, Rolando Quiroz) done for educational purposes in the Low Level Programming track. It consists of developing our own custom of DASH Shell. Though emulating of DASH was the general and main goal. The goal for us was to learn and develop various team and individual skills regarding coding and git.
+This is a Holberton School group project (Jonathan Cardenas Pabon, Rolando Quiroz) done for educational purposes in the Low Level Programming track. It consists of developing our own custom of DASH Shell. Though emulating of DASH was the general and main goal. We learned and developed various team and individual skills regarding coding and git.
 
 .SH RETURN VALUE
 The shell returns the error code given by the last completed command followed by either ctrl-d or exit with no status code.
 
 .SH SYNTAX
-JS$ <command> <flags or options> <argument 1> <argument 2> ...
+#cisfun$ <command> <flags or options> <argument 1> <argument 2> ...
 OR NON-INTERACTIVE MODE:
 $ <command> | ./hsh
 .SS
@@ -23,10 +23,10 @@ Interactive mode:
 
 .SS
 EXAMPLE 1:
-JS$ /bin/ls
+#cisfun$  /bin/ls
 .SS
 EXAMPLE 2:
-JS$ ls -l
+#cisfun$ ls -l
 .SS
 Non-interactive mode:
 
@@ -39,8 +39,8 @@ $ echo "ls -l" | ./hsh
 .SS cd
 - change directory
 
-.SS env
-- list the current environment variables
+.SS help
+- display help for a builtin command
 
 .SS exit
 - exit the shell
