@@ -13,7 +13,6 @@ args_t split_line(char *buf)
 	char *delim = " \t\n";
 	char *token;
 	int count = 0;
-	int i;
 
 	temp = malloc((_strlen(buf) + 1) * sizeof(char));
 	if (temp == NULL)
@@ -42,7 +41,6 @@ args_t split_line(char *buf)
 	argv[count] = NULL;
 	argts.argc = count;
 	argts.argv = argv;
-	i = count;
 
 	free(temp);
 	return (argts);

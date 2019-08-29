@@ -1,7 +1,6 @@
 #ifndef _HEADER_H_
 #define _HEADER_H_
 
-#define _GNU_SOURCE
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -48,8 +47,25 @@ typedef struct node_s
 	path_t *path;
 	size_t len;
 } node_t;
+/**
+ * struct built_f - Struct built in
+ * @fc: name function
+ * @f: &address function call
+ */
+typedef struct built_f
+{
+	char *fc;
+	int (*f)(char **argv);
+} built_t;
 
 extern char **environ;
+
+int built_cd(char **args);
+int built_help(char **args);
+int built_exit(char **args);
+int built_env(char **args);
+
+int (*get_built_func(char *s))(char **);
 
 int _strlen(char *str);
 int _strcmp(char *s1, char *s2);

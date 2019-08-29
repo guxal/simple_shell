@@ -39,6 +39,7 @@ int launch(char **argv)
  */
 int execute(char **argv, path_t *path)
 {
+	int (*built)(char**);
 	/* int i; */
 	char *concat;
 	struct stat st;
@@ -47,13 +48,12 @@ int execute(char **argv, path_t *path)
 		return (1);
 	if (argv[0][0] == '/' || argv[0][0] == '.')
 		return (launch(argv));
-	/*
-	* for (i = 0; i < lsh_num_builtins(); i++)
-	* {
-	* if (_strcmp(argv[0], builtin_str[i]) == 0)
-	* return (*builtin_func[i])(argv);
-	* }
-	*/
+
+	built = get_built_func(argv[0]);
+
+	if (built != NULL)
+		return (built(argv));
+	
 	while (path)
 	{
 		concat = malloc((_strlen(path->str) + 1) * sizeof(char));
