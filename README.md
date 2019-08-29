@@ -58,18 +58,21 @@ help - Display help for a builtin command
 help
 ```
 ## Files and functions
-
 | File | Description |
 | :-:   | :-: |
 | AUTHORS | Contributors list to this project |
-| _calloc.c | Our calloc dynamic memory function |
+|calloc.c| Our calloc dynamic memory function |
+|create_node|Manipulation data function|
 |delete_memory.c | Focus on free memory tasks |
 |execute.c|hell builtins and command execution|
 |header.h|Header file with prototypes of functions|
+|getenv.c|Functions related to the enviroment variable|
 |main.c|The main function from #cisfun$ Shell|
+|man_1_simple_shell| Simple Shell man page |
 |_realloc.c | Our realloc dynamic memory function |
 |read_line.c| Read a line from the user input |
 |split_line.c | Line to tokens to generate argv vector |
+|strcat|Our strcat string function|
 |strcmp.c| Our strcmp string function |
 |strcpy.c| Our strcpy string function |
 |strlen.c| Our strlen string function |
@@ -78,6 +81,5 @@ Jonathan Cardenas Pabon
 email: 892@holbertonschool.com
 Rolando Quiroz
 email: 906@holbertonschool.com
-
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
