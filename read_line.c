@@ -1,22 +1,18 @@
 #include "header.h"
-
 /**
- * main - create shell
- *
+ * *read_line - read line for stdin
  * Return: Success or Fail
  */
 char *read_line(void)
 {
 	char *buf = NULL;
-	int characters;
 	size_t bufsize = 0;
 
 	fflush(stdin);
-	characters = getline(&buf, &bufsize, stdin);
-	if (characters == -1)
+	if (getline(&buf, &bufsize, stdin) == -1)
 	{
 		free(buf);
-		exit(1);
+		return (NULL);
 	}
 	return (buf);
 }

@@ -6,17 +6,18 @@
  */
 char *_getenv(const char *name)
 {
-	extern char **environ;
 	char *delim = "=";
 	char *token;
+	char **ptr;
 
-	while (*environ)
+	ptr = environ;
+
+	while (*ptr)
 	{
-		token = strtok(*environ, delim);
+		token = strtok(*ptr, delim);
 		if (_strcmp(token, (char *) name) == 0)
 			return (strtok(NULL, delim));
-		environ++;
+		ptr++;
 	}
-
 	return (NULL);
 }

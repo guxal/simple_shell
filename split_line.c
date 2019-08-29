@@ -10,34 +10,38 @@ args_t split_line(char *buf)
 	args_t argts;
 	char **argv;
 	char *temp;
-	char *delim = " \n\t";
+	char *delim = " \t\n";
 	char *token;
 	int count = 0;
 
 	temp = malloc((_strlen(buf) + 1) * sizeof(char));
+	if (temp == NULL)
+		exit(1);
 	temp = _strcpy(temp, buf);
-	token = strtok(buf, " ");
+	token = strtok(buf, delim);
 	while (token != NULL)
 	{
 		count++;
-		token = strtok(NULL, " ");
+		token = strtok(NULL, delim);
 	}
 	argv = (char **) malloc((count + 1) * sizeof(char *));
-	if (argv == NULL)
-		return (argts);
-	token = strtok(temp, " ");
+	/*
+	* if (argv == NULL)
+	* return (NULL);
+	*/
+	token = strtok(temp, delim);
 	count = 0;
 	while (token != NULL)
 	{
 		argv[count] = (char *) _calloc((_strlen(token) + 1), sizeof(char));
 		argv[count] = _strcpy(argv[count], token);
 		count++;
-		token = strtok(NULL, " ");
+		token = strtok(NULL, delim);
 	}
 	argv[count] = NULL;
 	argts.argc = count;
 	argts.argv = argv;
+
 	free(temp);
-	free(token);
 	return (argts);
 }
