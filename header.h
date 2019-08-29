@@ -1,6 +1,7 @@
 #ifndef _HEADER_H_
 #define _HEADER_H_
 
+#define _GNU_SOURCE
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/stat.h>

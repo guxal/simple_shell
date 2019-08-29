@@ -14,7 +14,6 @@ int main(void)
 
 	node = build_node();
 
-
 	while (EOF)
 	{
 		/* print prompt */

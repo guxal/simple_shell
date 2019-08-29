@@ -14,8 +14,7 @@ char *_strcpy(char *dest, char *src)
 
 	for (i = 0; i <= str; i++)
 	{
-		if (src[i] != 10)
-			dest[i] = src[i];
+		dest[i] = src[i];
 	}
 
 	return (dest);
