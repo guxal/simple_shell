@@ -21,9 +21,8 @@ int built_cd(char **args)
    @param args List of args.  Not examined.
    @return Always returns 1, to continue executing.
  */
-int built_help(char **args)
+int built_help(__attribute__((unused)) char **args)
 {
-  int i;
   printf("Stephen Brennan's LSH\n");
   printf("Type program names and arguments, and hit enter.\n");
   printf("The following are built in:\n");
@@ -36,21 +35,21 @@ int built_help(char **args)
    @param args List of args.  Not examined.
    @return Always returns 0, to terminate execution.
  */
-int built_exit(char **args)
+int built_exit(__attribute__((unused)) char **args)
 {
-  exit(1);
+	exit(1);
 }
 
-int built_env(char **args)
+int built_env(__attribute__((unused)) char **args)
 {
     char **ptr;
 
     ptr = environ;
-    
+
     while (*ptr)
     {
         printf("%s\n", *ptr);
-        *ptr++;
+        ptr++;
     }
     return (1);
 }
