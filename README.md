@@ -18,6 +18,7 @@ The #cisfun$ Shell runs in interactive mode, doing:
 ```sh
 #./hsh
 ```
+## Example
 Getting the promt and typing commands:
 
 ```sh
@@ -37,20 +38,25 @@ $ echo "echo 'what the shell?'" | ./hsh
 'what the shell?'
 $
 ```
-## Example
-
-
-
 
 ## Built-ins
+
 The built-ins supported for this shell are
-
+### cd
 cd - Change directory
+```sh
+cd
+```
+### exit
 exit - Exit the shell
+```sh
+exit
+```
+### help
 help - Display help for a builtin command
-
-
-
+```sh
+help
+```
 ## Files and functions
 
 | File | Description |
@@ -61,7 +67,6 @@ help - Display help for a builtin command
 |execute.c|hell builtins and command execution|
 |header.h|Header file with prototypes of functions|
 |main.c|The main function from #cisfun$ Shell|
-|man_1_simple_shell|#cisfun$ Shell man page|
 |_realloc.c | Our realloc dynamic memory function |
 |read_line.c| Read a line from the user input |
 |split_line.c | Line to tokens to generate argv vector |
